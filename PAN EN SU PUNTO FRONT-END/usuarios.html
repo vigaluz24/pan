@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan en su Punto - Gestión de Usuarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+<!--Dashboard principal-->
+<div id="appSection" class="app-layout" style="display: flex; min-height: 100vh; margin: 0; padding: 0;">
+    <!--Barra Lateral-->
+    <aside class="sidebar" style="width: 250px; min-width: 250px; background-color: #FFFFFF; border-right: 1px solid #EAE3D9; display: flex; flex-direction: column; justify-content: space-between; height: 100vh; position: sticky; top: 0;">
+            <div class="sidebar-logo-section">
+                <img src="logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="usuarios.html" class="menu-item active">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="Index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="main-content">
+            <!-- BARRA SUPERIOR -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="top-actions-user">
+                    <span class="icon-btn">🔔</span>
+                    <span class="icon-btn">❓</span>
+                    <span class="user-profile-text">Administrador</span>
+                    <div class="user-avatar-top">A</div>
+                </div>
+            </header>
+            <!-- CUERPO DE GESTIÓN DE USUARIOS -->
+            <div class="dashboard-content">
+                <div class="dashboard-header-row">
+                    <div>
+                        <h1 class="dashboard-title">Gestión de Usuarios</h1>
+                        <p class="dashboard-subtitle">Controla el equipo de trabajo, los roles y los permisos del sistema.</p>
+                    </div>
+                    <button class="btn-nueva-venta" onclick="abrirModalNuevoUsuario()">+ Añadir Usuario</button>
+                </div>
+                <!-- SECCIÓN DE FILTROS Y BÚSQUEDA -->
+                <div class="card filter-card">
+                    <div class="filter-group">
+                        <select class="filter-select">
+                            <option>Todos los Roles</option>
+                            <option>Administrador</option>
+                            <option>Cajero</option>
+                            <option>Panadero</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>Estado: Todos</option>
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="search-table-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Buscar por nombre o correo...">
+                    </div>
+                </div>
+                <!-- TABLA DE USUARIOS -->
+                <div class="card table-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar jp">JP</div>
+                                        <span class="user-name">Juan Pérez</span>
+                                    </div>
+                                </td>
+                                <td class="user-email">juan@panensupunto.com</td>
+                                <td><span class="badge-role cajero">Cajero</span></td>
+                                <td><span class="badge-status activo">● Activo</span></td>
+                                <td>
+                                    <button class="btn-action" title="Restablecer contraseña" onclick="abrirModalRestablecer('Juan Pérez', 'juan@panensupunto.com')">🔑</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar mr">MR</div>
+                                        <span class="user-name">María Rodríguez</span>
+                                    </div>
+                                </td>
+                                <td class="user-email">maria@panensupunto.com</td>
+                                <td><span class="badge-role cajero">Cajero</span></td>
+                                <td><span class="badge-status activo">● Activo</span></td>
+                                <td>
+                                    <button class="btn-action" title="Restablecer contraseña" onclick="abrirModalRestablecer('María Rodríguez', 'maria@panensupunto.com')">🔑</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar cg">CG</div>
+                                        <span class="user-name">Carlos Gómez</span>
+                                    </div>
+                                </td>
+                                <td class="user-email">carlos@panensupunto.com</td>
+                                <td><span class="badge-role panadero">Panadero</span></td>
+                                <td><span class="badge-status inactivo">● Inactivo</span></td>
+                                <td>
+                                    <button class="btn-action" title="Restablecer contraseña" onclick="abrirModalRestablecer('Carlos Gómez', 'carlos@panensupunto.com')">🔑</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- PAGINACIÓN -->
+                    <div class="table-footer">
+                        <span class="pagination-info">Mostrando 1 a 3 de 12 resultados</span>
+                        <div class="pagination-buttons">
+                            <button class="page-btn">&lt;</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- VENTANA MODAL: CREAR NUEVO USUARIO -->
+    <div id="modalNuevoUsuario" class="modal-overlay">
+        <div class="card modal-card">
+            <h2 class="modal-title">Crear Nuevo Usuario</h2>
+            
+            <form id="formNuevoUsuario" onsubmit="guardarUsuario(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Nombres y Apellidos</label>
+                        <input type="text" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="text" placeholder="e.g., carlosa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <div class="password-box">
+                            <input type="password" placeholder="••••••••" required>
+                            <span class="eye-icon">👁️</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Rol en el sistema</label>
+                        <select class="filter-select full-width" required>
+                            <option value="">Seleccione un rol</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Cajero">Cajero</option>
+                            <option value="Panadero">Panadero</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar contraseña</label>
+                        <div class="password-box">
+                            <input type="password" placeholder="••••••••" required>
+                            <span class="eye-icon">👁️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn-secundario" onclick="cerrarModalNuevoUsuario()">Volver</button>
+                    <button type="submit" class="btn-principal-naranja">Guardar Usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- NOTIFICACIÓN FLOTANTE DE ÉXITO -->
+    <div id="toastNotificacion" class="toast-notification">
+        <div class="toast-icon">✅</div>
+        <div class="toast-content">
+            <strong>¡Éxito!</strong>
+            <span id="toastMensaje">Usuario registrado correctamente en el sistema.</span>
+        </div>
+    </div>
+    <!-- 1. MODAL: CONFIRMAR RESTABLECIMIENTO DE CONTRASEÑA -->
+<div id="modalConfirmarRestablecer" class="modal-overlay">
+    <div class="card modal-card modal-small">
+        <span class="close-icon" onclick="cerrarModalRestablecer()">&times;</span>
+        <div class="modal-header-icon">
+            <span class="circle-icon orange">🔄</span>
+            <h2>Restablecer contraseña</h2>
+        </div>
+        <p class="modal-subtitle-text">¿Está seguro de que desea generar una contraseña temporal para este usuario?</p>
+        
+        <div class="user-info-box">
+            <div class="info-row">👤 <strong>Nombre:</strong> <span id="resetNombreUsuario">Juan Pérez</span></div>
+            <div class="info-row">✉️ <strong>Correo:</strong> <span id="resetCorreoUsuario">juan@panensupunto.com</span></div>
+        </div>
+
+        <div class="modal-buttons">
+            <button type="button" class="btn-secundario" onclick="cerrarModalRestablecer()">Cancelar</button>
+            <button type="button" class="btn-principal-naranja" onclick="generarClaveTemporal()">🔑 Generar contraseña temporal</button>
+        </div>
+    </div>
+</div>
+
+<!-- 2. MODAL: MOSTRAR CONTRASEÑA TEMPORAL GENERADA -->
+<div id="modalClaveGenerada" class="modal-overlay">
+    <div class="card modal-card modal-small text-center">
+        <span class="close-icon" onclick="cerrarModalClaveGenerada()">&times;</span>
+        <div class="logo-container-modal">
+            <img src="logo.jpeg.jpeg" alt="Logo" class="modal-logo">
+        </div>
+
+        <label class="input-label-left">Nueva credencial</label>
+        <div class="credential-box">
+            <span id="claveTemporalTexto" class="credential-text">Pp#2026Temp!</span>
+            <button type="button" class="btn-copiar" onclick="copiarClaveTemporal()">📋 Copiar</button>
+        </div>
+
+        <div class="alert-box-warning">
+            <span class="shield-icon">🛡️</span>
+            <div>
+                <strong>Esta contraseña es temporal.</strong> El usuario deberá cambiarla obligatoriamente en su próximo inicio de sesión por motivos de seguridad.
+            </div>
+        </div>
+
+        <button type="button" class="btn-principal-naranja full-width" onclick="cerrarModalClaveGenerada()">Cerrar</button>
+    </div>
+</div>
+    <script src="usuarios.js"></script>
+</body>
+</html>

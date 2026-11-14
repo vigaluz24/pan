@@ -1,0 +1,613 @@
+/* ========================================================== */
+/* ESTILOS GLOBALES Y LAYOUT GENERAL DEL MÓDULO DE VENTAS      */
+/* ========================================================== */
+.dashboard-body {
+    background-color: #F8F6F0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal en dos columnas (Sidebar + Contenido) */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ========================================================== */
+/* BARRA LATERAL (SIDEBAR)                                    */
+/* ========================================================== */
+.sidebar {
+    width: 260px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #EAE3D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.sidebar-logo-section {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #EAE3D9;
+}
+
+.sidebar-logo {
+    max-width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto 8px auto;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    color: #2C221E;
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar-subtitle {
+    font-size: 11px;
+    color: #777;
+    margin: 2px 0 0 0;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.menu-item.active {
+    background-color: #D97706 !important;
+    color: #FFF !important;
+    font-weight: bold;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #EAE3D9;
+    padding-top: 15px;
+}
+
+.logout-btn {
+    color: #C0392B !important;
+}
+
+.logout-btn:hover {
+    background-color: #FDEDEC !important;
+}
+
+/* ========================================================== */
+/* CONTENIDO PRINCIPAL                                        */
+/* ========================================================== */
+.main-content {
+    flex-grow: 1;
+    padding: 25px;
+    background-color: #F8F6F0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.module-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Tarjetas y Contenedores */
+.card {
+    background: #FFFFFF;
+    border: 1px solid #EAE3D9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.sales-grid-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+}
+
+.pos-express-card {
+    background: linear-gradient(135deg, #FFFDF9 0%, #FDF4EB 100%);
+    border: 1px solid #E8D5C4;
+    position: relative;
+}
+
+.pos-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #F39C12;
+    color: #FFF;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.card-icon-title {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.icon-box {
+    font-size: 30px;
+    background: #F4EBE1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.income-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 5px 0;
+}
+
+.income-amount {
+    font-size: 24px;
+    color: #2C221E;
+}
+
+.currency {
+    font-size: 13px;
+    color: #777;
+}
+
+.badge-success, .badge-open {
+    background: #E8F8F5;
+    color: #27AE60;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.desglose-box {
+    display: flex;
+    justify-content: space-between;
+    background: #F9F8F6;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.quick-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.quick-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.quick-footer a {
+    color: #D97706;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ========================================================== */
+/* LAYOUT DEL POS Y CATÁLOGO                                  */
+/* ========================================================== */
+.pos-layout-container {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 20px;
+    height: 85vh;
+}
+
+.catalog-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+.search-bar-container {
+    background: #FFF;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #EAE3D9;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D1C7BD;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    background: #FFF;
+    border: 1px solid #EAE3D9;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.product-img-placeholder {
+    font-size: 40px;
+    background: #F4EBE1;
+    border-radius: 8px;
+    padding: 15px 0;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    color: #D97706;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+/* ========================================================== */
+/* CARRITO Y RESUMEN                                          */
+/* ========================================================== */
+.cart-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-items-list {
+    max-height: 45vh;
+    overflow-y: auto;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qty-btn {
+    background: #EEE;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-summary-box {
+    background: #FDF9F5;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #F3E5D8;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.summary-line.total {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.total-amount {
+    color: #D97706;
+    font-size: 18px;
+}
+
+/* ========================================================== */
+/* COMPROBANTES Y RECIBOS                                     */
+/* ========================================================== */
+.receipt-card {
+    background: #FFFDEB;
+    border: 1px solid #EADCA8;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.receipt-table {
+    width: 100%;
+    margin-top: 12px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.receipt-table th {
+    text-align: left;
+    border-bottom: 1px solid #D1C7BD;
+    padding-bottom: 4px;
+}
+
+.receipt-table td {
+    padding: 6px 0;
+    border-bottom: 1px dashed #E5D9C5;
+}
+
+.qr-placeholder {
+    background: #F9F8F6;
+    border: 2px dashed #D1C7BD;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.cufe-box {
+    background: #F4EBE1;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.cancel-card-box {
+    border: 1px solid #F5B7B1;
+    background: #FDEDEC;
+}
+
+/* ========================================================== */
+/* BOTONES UNIFICADOS CON EL COLOR #D97706                    */
+/* ========================================================== */
+.btn-ingresar,
+.btn-principal-naranja,
+.btn-secondary.active-tab,
+.btn-add-product {
+    background-color: #D97706 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-ingresar:hover,
+.btn-principal-naranja:hover,
+.btn-secondary.active-tab:hover,
+.btn-add-product:hover {
+    background-color: #B45309 !important;
+}
+
+.btn-secondary {
+    background: #FFF;
+    border: 1px solid #D1C7BD;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background: #FEF3C7;
+    color: #D97706;
+    border-color: #D97706;
+}
+
+.btn-outline-naranja {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #D97706 !important;
+    color: #D97706 !important;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-outline-naranja:hover {
+    background: #FEF3C7 !important;
+}
+
+.btn-danger-red {
+    width: 100%;
+    padding: 10px;
+    background: #C0392B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger-red:hover {
+    background: #962D22;
+}
+
+/* Utilidades generales */
+.hidden {
+    display: none !important;
+}
+/* Contenedor y diseño de las imágenes reales de productos */
+.product-img-container {
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #F4EBE1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* Estilos del Modal de Procesamiento de Pago */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-payment-card {
+    background: #FFFDF9;
+    border: 1px solid #EAE3D9;
+    border-radius: 16px;
+    width: 780px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.modal-payment-left {
+    padding: 25px;
+    border-right: 1px solid #EAE3D9;
+    background: #FFFDF9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-payment-right {
+    padding: 25px;
+    background: #FFF;
+}
+
+.modal-summary-box {
+    background: #F8F6F0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #EAE3D9;
+}
+
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.pay-method-btn {
+    background: #FFF;
+    border: 1px solid #D1C7BD;
+    border-radius: 8px;
+    padding: 12px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+    text-align: center;
+}
+
+.pay-method-btn.active {
+    background: #D97706;
+    color: #FFF;
+    border-color: #D97706;
+}
+
+.monto-display {
+    background: #F8F6F0;
+    border: 1px solid #D1C7BD;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #2C221E;
+    text-align: right;
+}
+
+.keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.keypad-grid button {
+    background: #FFF;
+    border: 1px solid #D1C7BD;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.keypad-grid button:hover {
+    background: #FEF3C7;
+    color: #D97706;
+    border-color: #D97706;
+}
+.hidden {
+    display: none !important;
+}

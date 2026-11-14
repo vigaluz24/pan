@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes de Producción - Pan en su Punto</title>
+    <link rel="stylesheet" href="produccion.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL -->
+         <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item active">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+       
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Barra Superior de Búsqueda y Accesos -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 8px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; width: 300px;">
+                    <span>🔍</span>
+                    <input type="text" id="inputBuscarOrden" placeholder="Buscar orden..." style="border: none; outline: none; width: 100%; font-size: 13px; background: transparent; color: #333;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 18px; cursor: pointer;">📅</span>
+                    <span style="font-size: 18px; cursor: pointer;">🔔</span>
+                    <div style="width: 32px; height: 32px; background: #67412E; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold;">AP</div>
+                </div>
+            </div>
+
+            <!-- Cabecera del Módulo y Botón Nueva Orden -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
+                <div>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 0;">Órdenes de Producción</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Gestión y seguimiento de lotes activos.</p>
+                </div>
+                <button onclick="window.location.href='nueva_orden.html'" style="background: #D97706; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);">
+                    + Nueva Orden
+                </button>
+            </div>
+
+            <!-- Tarjetas de Filtros Superiores -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px;">
+                
+                <!-- Filtro Fecha -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 12px 15px; border-radius: 10px;">
+                    <label style="font-size: 10px; font-weight: bold; color: #777; display: block; text-transform: uppercase; margin-bottom: 4px;">Fecha</label>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; font-weight: bold; color: #333;">Hoy</span>
+                        <span style="font-size: 14px;">📅</span>
+                    </div>
+                </div>
+
+                <!-- Filtro Producto -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 12px 15px; border-radius: 10px;">
+                    <label style="font-size: 10px; font-weight: bold; color: #777; display: block; text-transform: uppercase; margin-bottom: 4px;">Producto</label>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; font-weight: bold; color: #333;">Todos</span>
+                        <span style="font-size: 14px;">🥐</span>
+                    </div>
+                </div>
+
+                <!-- Filtro Estado -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 12px 15px; border-radius: 10px;">
+                    <label style="font-size: 10px; font-weight: bold; color: #777; display: block; text-transform: uppercase; margin-bottom: 4px;">Estado</label>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; font-weight: bold; color: #333;">Todos</span>
+                        <span style="font-size: 14px;">📋</span>
+                    </div>
+                </div>
+
+                <!-- Filtro Usuario -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 12px 15px; border-radius: 10px;">
+                    <label style="font-size: 10px; font-weight: bold; color: #777; display: block; text-transform: uppercase; margin-bottom: 4px;">Usuario</label>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; font-weight: bold; color: #333;">Todos</span>
+                        <span style="font-size: 14px;">👥</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tabla de Órdenes de Producción -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #EAE3D9; background: #FAF8F5;">
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">No. Orden</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Producto</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Cantidad</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Responsable</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Estado</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold; text-align: right;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaOrdenesProduccion">
+                        <!-- Fila 1: Pendiente -->
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">PRD-001</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">🍞 Pan Artesanal</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">50 <span style="font-weight: normal; color: #777; font-size: 11px;">unidades</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="width: 24px; height: 24px; background: #E67E22; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">CP</span>
+                                    Carlos Pérez
+                                </div>
+                            </td>
+                            <td style="padding: 15px;">
+                                <span style="background: #F2F3F4; color: #555; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● PENDIENTE</span>
+                            </td>
+                            <td style="padding: 15px; text-align: right;">
+                                <button onclick="window.location.href='finalizar_orden.html'" style="background: none; border: none; color: #D97706; font-weight: bold; font-size: 13px; cursor: pointer;">Gestionar &gt;</button>
+                            </td>
+                        </tr>
+
+                        <!-- Fila 2: En Proceso -->
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">PRD-002</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">🥖 Baguette Rústica</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">100 <span style="font-weight: normal; color: #777; font-size: 11px;">unidades</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="width: 24px; height: 24px; background: #E67E22; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">CP</span>
+                                    Carlos Pérez
+                                </div>
+                            </td>
+                            <td style="padding: 15px;">
+                                <span style="background: #FDEBD0; color: #D35400; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● EN PROCESO</span>
+                            </td>
+                            <td style="padding: 15px; text-align: right;">
+                                <button onclick="window.location.href='finalizar_orden.html'" style="background: none; border: none; color: #D97706; font-weight: bold; font-size: 13px; cursor: pointer;">Gestionar &gt;</button>
+                            </td>
+                        </tr>
+
+                        <!-- Fila 3: Finalizada -->
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">PRD-003</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">🥐 Croissant Manteca</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">80 <span style="font-weight: normal; color: #777; font-size: 11px;">unidades</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="width: 24px; height: 24px; background: #E67E22; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">CP</span>
+                                    Carlos Pérez
+                                </div>
+                            </td>
+                            <td style="padding: 15px;">
+                                <span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">✓ FINALIZADA</span>
+                            </td>
+                            <td style="padding: 15px; text-align: right;">
+                                <button onclick="alert('Esta orden ya se encuentra finalizada.')" style="background: none; border: none; color: #777; font-weight: bold; font-size: 13px; cursor: pointer;">Ver detalle &gt;</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Paginación inferior -->
+                <div style="padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #FAF8F5;">
+                    <span style="font-size: 12px; color: #777;">Mostrando 3 de 12 órdenes</span>
+                    <div style="display: flex; gap: 10px;">
+                        <button style="background: white; border: 1px solid #EAE3D9; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&lt;</button>
+                        <button style="background: white; border: 1px solid #EAE3D9; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+<script src="ordenes_produccion.js"></script>
+</body>
+</html>

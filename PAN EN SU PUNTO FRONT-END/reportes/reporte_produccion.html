@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Producción - Pan en su Punto</title>
+    <link rel="stylesheet" href="reportes.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item active">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Cabecera -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                    <span style="font-size: 11px; color: #777; text-transform: uppercase; font-weight: bold;"><a href="reportes.html" style="color: #D97706; text-decoration: none;">Reportes</a> / Reporte de Producción</span>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 4px 0 0 0;">Reporte de Producción</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Seguimiento de órdenes, cantidades planificadas y rendimiento de producción.</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button style="background: white; border: 1px solid #EAE3D9; color: #555; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Exportar PDF</button>
+                    <button style="background: white; border: 1px solid #EAE3D9; color: #555; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Exportar Excel</button>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 15px; align-items: flex-end;">
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">FECHA INICIAL</label>
+                    <input type="date" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">FECHA FINAL</label>
+                    <input type="date" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">ESTADO DE LA ORDEN</label>
+                    <select style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none; color: #555;">
+                        <option>Todos</option>
+                        <option>Completada</option>
+                        <option>En proceso</option>
+                        <option>Cancelada</option>
+                    </select>
+                </div>
+                <div>
+                    <button style="background: #D97706; color: white; border: none; padding: 11px 25px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Generar reporte</button>
+                </div>
+            </div>
+
+            <!-- Tarjetas KPI -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px;">
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                    <span style="font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase;">Órdenes de producción</span>
+                    <h3 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 5px 0;">48</h3>
+                </div>
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                    <span style="font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase;">Cant. planificada total</span>
+                    <h3 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 5px 0;">1.200 <span style="font-size: 13px; color: #777; font-weight: normal;">und</span></h3>
+                </div>
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                    <span style="font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase;">Cant. producida total</span>
+                    <h3 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 5px 0;">1.150 <span style="font-size: 13px; color: #777; font-weight: normal;">und</span></h3>
+                </div>
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; border-left: 4px solid #C0392B;">
+                    <span style="font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase;">Variación total</span>
+                    <h3 style="color: #C0392B; font-size: 24px; font-weight: bold; margin: 5px 0;">-50 <span style="font-size: 13px; color: #777; font-weight: normal;">und</span></h3>
+                </div>
+            </div>
+
+            <!-- Tabla Detalle de Órdenes -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <div style="padding: 15px 20px; border-bottom: 1px solid #EAE3D9; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: #67412E; font-size: 14px; font-weight: bold; margin: 0;">Detalle de Órdenes</h3>
+                    <span style="font-size: 12px; color: #D97706; font-weight: bold; cursor: pointer;">Ver todas &gt;</span>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #EAE3D9; background: #FAF8F5;">
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">N° Orden</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Fecha</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Producto</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Planificada</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Real</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Variación</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold; text-align: right;">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">#ORD-042</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">24 Oct 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Pan Aliñado</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">300</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">295</td>
+                            <td style="padding: 15px; font-size: 13px; color: #C0392B; font-weight: bold;">-5</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Completada</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">#ORD-043</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">24 Oct 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Pandebono Tradicional</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">150</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">150</td>
+                            <td style="padding: 15px; font-size: 13px; color: #27AE60; font-weight: bold;">0</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Completada</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">#ORD-044</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">25 Oct 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Buñuelos Especiales</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">200</td>
+                            <td style="padding: 15px; font-size: 13px; color: #777;">-</td>
+                            <td style="padding: 15px; font-size: 13px; color: #777;">-</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #EBF5FB; color: #2980B9; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">En proceso</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">#ORD-045</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">23 Oct 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Roscón de Arequipe</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">100</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">45</td>
+                            <td style="padding: 15px; font-size: 13px; color: #C0392B; font-weight: bold;">-55</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #FDEDEC; color: #C0392B; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Cancelada</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

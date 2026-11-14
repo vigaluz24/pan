@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Pan en su Punto</title>
+    <link rel="stylesheet" href="reportes/reportes.css"> <!-- O tu inventario.css según prefieras -->
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+       <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="configuracion.html" class="menu-item active">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="Index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <div style="margin-bottom: 25px;">
+                <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 0;">Configuración del Sistema</h1>
+                <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Administra los datos generales de la panadería, tu perfil de usuario y preferencias operativas.</p>
+            </div>
+
+            <!-- Secciones de Configuración en Pestañas o Tarjetas -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+                
+                <!-- Columna Izquierda: Formularios -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    
+                    <!-- 1. Datos del Establecimiento -->
+                    <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                        <h3 style="color: #67412E; font-size: 15px; font-weight: bold; margin: 0 0 15px 0; border-bottom: 1px solid #EAE3D9; padding-bottom: 10px;">🏪 Información del Negocio</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">NOMBRE DEL ESTABLECIMIENTO</label>
+                                <input type="text" value="Pan en su Punto" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                            </div>
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">NIT / IDENTIFICACIÓN TRIBUTARIA</label>
+                                <input type="text" value="900.823.441-2" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">TELÉFONO DE CONTACTO</label>
+                                <input type="text" value="+57 (310) 456-7890" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                            </div>
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">MONEDA PREDETERMINADA</label>
+                                <select style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none; color: #555;">
+                                    <option>COP ($)</option>
+                                    <option>USD ($)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Perfil de Usuario Actual -->
+                    <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                        <h3 style="color: #67412E; font-size: 15px; font-weight: bold; margin: 0 0 15px 0; border-bottom: 1px solid #EAE3D9; padding-bottom: 10px;">👤 Perfil de Administrador</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">NOMBRE COMPLETO</label>
+                                <input type="text" value="Ana María López" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                            </div>
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 5px;">CORREO ELECTRÓNICO</label>
+                                <input type="email" value="admin@panensupunto.com" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none;">
+                            </div>
+                        </div>
+
+                        <div>
+                            <button style="background: white; border: 1px solid #D97706; color: #D97706; padding: 8px 15px; border-radius: 6px; font-weight: bold; font-size: 12px; cursor: pointer;">Cambiar contraseña</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Columna Derecha: Preferencias y Acciones -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    
+                    <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px;">
+                        <h3 style="color: #67412E; font-size: 15px; font-weight: bold; margin: 0 0 15px 0; border-bottom: 1px solid #EAE3D9; padding-bottom: 10px;">🔔 Notificaciones</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: #555;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: #D97706;"> Alertas de stock mínimo
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: #D97706;"> Materia prima próxima a vencer
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: #D97706;"> Reporte diario de caja
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; text-align: center; position: relative;">
+                        <h3 style="color: #67412E; font-size: 15px; font-weight: bold; margin: 0 0 10px 0;">Guardar Cambios</h3>
+                        <p style="color: #777; font-size: 12px; margin-bottom: 15px;">Aplica las modificaciones realizadas en el sistema.</p>
+                        <button onclick="guardarConfiguracion()" style="background: #D97706; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Guardar cambios</button>
+                        
+                        <!-- Notificación flotante oculta inicialmente -->
+                        <div id="toastMensaje" style="display: none; margin-top: 15px; background: #E8F8F5; color: #16A085; border: 1px solid #A3E4D7; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: bold; animation: fadeIn 0.3s;">
+                            ✅ ¡Configuración guardada con éxito! Redirigiendo...
+                        </div>
+                    </div>
+            </div>
+        </main>
+    </div>
+<script>
+    function guardarConfiguracion() {
+        const toast = document.getElementById('toastMensaje');
+        
+        // Mostrar la notificación flotante con estilo moderno
+        toast.style.display = 'block';
+
+        // Simular un breve retraso para que el usuario aprecie el mensaje y redirigir al Dashboard principal
+        setTimeout(function() {
+            window.location.href = 'dashboard.html'; // Cambia la ruta si tu dashboard está en otra carpeta (ej. '../dashboard.html')
+        }, 1500); // 1.5 segundos de espera antes del salto
+    }
+</script>
+</body>
+</html>

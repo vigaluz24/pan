@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan en su Punto - Iniciar Sesión</title>
+    <link rel="stylesheet" href="Style.css">
+ </head>   
+<body>
+ <!-- MÓDULO DE LOGIN -->
+<div id="loginSection" class="login-container">
+    <div class="login-card">
+        <div class="logo-section">
+            <img src="logo.jpeg.jpeg" alt="Pan en su Punto Logo" class="system-logo">
+            <p class="subtitle">Software de gestión</p>
+        </div>
+        <div id="loginForm">
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" placeholder="Ingrese su usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <div class="password-wrapper">
+                    <input type="password" id="contrasena" placeholder="Ingrese su contraseña" required>
+                    <span id="togglePassword" class="eye-icon">👁️</span>
+                </div>
+            </div>
+            <button type="button" class="btn-ingresar" onclick="realizarLogin()">Ingresar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MÓDULO DE ACTUALIZACIÓN DE CONTRASEÑA OBLIGATORIA (Inicia oculto con .hidden) -->
+<div id="sectionActualizarPassword" class="login-container hidden">
+    <div class="login-card">
+        <div class="text-center">
+            <img src="logo.jpeg.jpeg" alt="Logo" class="system-logo">
+            <h2 class="main-title" style="font-size: 20px; margin-top: 10px;">Debes actualizar tu contraseña</h2>
+            <p class="subtitle" style="margin-bottom: 20px;">Por seguridad, crea una nueva contraseña para acceder al sistema.</p>
+        </div>
+
+        <form onsubmit="finalizarCambioPassword(event)">
+            <div class="form-group">
+                <label>Contraseña temporal</label>
+                <input type="password" id="inputClaveTemp" placeholder="••••••••" required>
+            </div>
+            <div class="form-group">
+                <label>Nueva contraseña</label>
+                <input type="password" id="inputNuevaClave" placeholder="Ingresa tu nueva contraseña" oninput="validarRequisitosPassword()" required>
+            </div>
+            <div class="form-group">
+                <label>Confirmar nueva contraseña</label>
+                <input type="password" id="inputConfirmarClave" placeholder="Repite tu nueva contraseña" required>
+            </div>
+
+            <!-- REQUISITOS DE CONTRASEÑA -->
+            <div class="user-info-box" style="margin-bottom: 20px; font-size: 13px; background: #F9F8F6; padding: 12px; border-radius: 8px;">
+                <strong style="display: block; margin-bottom: 6px; color: #67412E;">Requisitos de la contraseña:</strong>
+                <div id="reqMinChar">⚪ Mínimo 8 caracteres</div>
+                <div id="reqMayus">⚪ Una letra mayúscula</div>
+                <div id="reqMinus">⚪ Una letra minúscula</div>
+                <div id="reqNum">⚪ Un número</div>
+                <div id="reqEspecial">⚪ Un carácter especial (!@#$%^&*)</div>
+            </div>
+
+            <button type="submit" class="btn-ingresar">🔄 Actualizar contraseña</button>
+        </form>
+    </div>
+</div>  
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+                    
+
+
+

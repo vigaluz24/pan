@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición Bloqueada - Pan en su Punto</title>
+    <link rel="stylesheet" href="recetas.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item  active">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL CON EFECTO MODAL SUPERPUESTO -->
+        <main class="main-content" style="padding: 40px; background: rgba(0,0,0,0.4); flex: 1; display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+            
+            <div style="background: white; width: 100%; max-width: 480px; border-radius: 16px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center;">
+                
+                <div style="background: #FDEDEC; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: #C0392B; font-size: 24px;">🔒</div>
+
+                <h2 style="color: #67412E; font-size: 22px; font-weight: bold; margin-bottom: 10px;">Edición Bloqueada</h2>
+                
+                <p style="color: #777; font-size: 13px; line-height: 1.5; margin-bottom: 25px;">
+                    No se puede modificar la receta mientras haya una orden de horneado en curso.
+                </p>
+
+                <button onclick="window.location.href='recetas.html'" style="background: #D97706; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; width: 100%;">
+                    Entendido
+                </button>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Orden de Producción - Pan en su Punto</title>
+    <link rel="stylesheet" href="produccion.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL (SIDEBAR UNIFICADA) -->
+       <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item active">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Botón Volver y Cabecera -->
+            <div style="margin-bottom: 20px;">
+                <a href="produccion.html" style="color: #D97706; font-weight: bold; text-decoration: none; font-size: 13px;">&lt; Volver al Hub de Producción</a>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div>
+                    <h1 style="color: #67412E; font-size: 22px; font-weight: bold; margin: 0;">Nueva orden de producción</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Planificación y cálculo de insumos en tiempo real</p>
+                </div>
+                <button class="btn-primary-white" onclick="crearOrdenProduccion()" style="background: #D97706; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: auto;">+ Crear orden</button>
+            </div>
+
+            <!-- Formulario de Selección del Producto -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr; gap: 20px;">
+                    
+                    <!-- Producto Terminado -->
+                    <div>
+                        <label style="font-size: 12px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Producto terminado</label>
+                        <select id="selectProductoTerminado" onchange="recalcularInsumos()" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 14px; background: #FAF8F5; color: #333; outline: none; cursor: pointer;">
+                            <option value="pan_masa_madre">Pan de masa madre</option>
+                            <option value="pan_alinado">Pan Aliñado</option>
+                            <option value="pandebono">Pandebono</option>
+                            <option value="bunuelos">Buñuelos</option>
+                            <option value="roscon">Roscón</option>
+                        </select>
+                    </div>
+
+                    <!-- Cantidad a producir -->
+                    <div>
+                        <label style="font-size: 12px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Cantidad a producir (unidades)</label>
+                        <input type="number" id="inputCantidadProducir" value="100" min="1" oninput="recalcularInsumos()" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 14px; background: #FAF8F5; color: #333; outline: none; font-weight: bold;">
+                    </div>
+
+                    <!-- Estado Inicial -->
+                    <div>
+                        <label style="font-size: 12px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Estado Inicial</label>
+                        <input type="text" value="Pendiente" disabled style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 14px; background: #EAE3D9; color: #555; font-weight: bold;">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tabla de Cálculo Automático de Requerimientos -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <div style="margin-bottom: 15px;">
+                    <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0;">Cálculo automático de requerimientos</h3>
+                    <p style="color: #777; font-size: 12px; margin: 4px 0 0 0;">Validación de stock en tiempo real según la receta base.</p>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #EAE3D9; text-align: left;">
+                            <th style="padding: 12px; font-size: 12px; color: #67412E;">Materia prima</th>
+                            <th style="padding: 12px; font-size: 12px; color: #67412E;">Cantidad requerida</th>
+                            <th style="padding: 12px; font-size: 12px; color: #67412E;">Stock disponible</th>
+                            <th style="padding: 12px; font-size: 12px; color: #67412E; text-align: center;">Validación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaInsumosBody">
+                        <!-- Se llena dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script de Control -->
+    <script src="nueva_orden.js"></script>
+</body>
+</html>

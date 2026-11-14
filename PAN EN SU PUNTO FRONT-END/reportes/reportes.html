@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Reportes - Pan en su Punto</title>
+    <link rel="stylesheet" href="reportes.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL (SIDEBAR UNIFICADA) -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item active">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <div style="margin-bottom: 25px;">
+                <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 0;">Gestión de Reportes</h1>
+                <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Visualiza y genera reportes detallados para la toma de decisiones. Selecciona el tipo de reporte que deseas consultar.</p>
+            </div>
+
+            <!-- Cuadrícula de Reportes -->
+           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                
+                <!-- 1. Reporte de Ventas -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">📈</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Reporte de Ventas</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Resumen detallado de ingresos y transacciones comerciales del periodo.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_ventas.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Generar reporte ➔</button>
+                </div>
+
+                <!-- 2. Reporte de Inventario -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">📦</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Reporte de Inventario</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Estado actual de existencias, productos disponibles y valorización total.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_inventarios.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Consultar ➔</button>
+                </div>
+
+                <!-- 3. Alertas de Stock -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FDEDEC; color: #C0392B; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">⚠️</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Alertas de Stock</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Notificaciones críticas de productos o materia prima bajo el mínimo establecido.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_alertas_stock.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Consultar ➔</button>
+                </div>
+
+                <!-- 4. Reporte de Mermas -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">📉</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Reporte de Mermas</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Registro detallado de productos defectuosos o no aptos para venta.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_mermas.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Generar reporte ➔</button>
+                </div>
+
+                <!-- 5. Reporte de Producción -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">🥖</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Reporte de Producción</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Control de productos elaborados diarios, eficiencia y uso de recursos.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_produccion.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Generar reporte ➔</button>
+                </div>
+
+                <!-- 6. Flujo de Caja -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #E8F8F5; color: #16A085; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">💵</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Flujo de Caja</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Análisis de movimientos de entrada, salida de efectivo y liquidez.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_flujo_caja.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Consultar ➔</button>
+                </div>
+
+                <!-- 7. Reporte Kardex -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">🔄</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Reporte Kardex</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Movimiento histórico detallado de entradas y salidas de inventario.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_kardex.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Generar reporte ➔</button>
+                </div>
+
+                <!-- 8. Productos Más Vendidos -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FEF9E7; color: #D35400; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">⭐</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Productos Más Vendidos</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Ranking estadístico de popularidad, volumen de ventas y rentabilidad.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_productos_mas_vendidos.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Consultar ➔</button>
+                </div>
+
+                <!-- 9. Materia Prima Próxima a Vencer -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #FDEDEC; color: #C0392B; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">📅</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Materia Prima Próxima a Vencer</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Alertas preventivas de fechas de caducidad para evitar pérdidas.</p>
+                    </div>
+                    <button onclick="window.location.href='reporte_materia_prima_vencer.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Consultar ➔</button>
+                </div>
+
+                <!-- 10. Auditoría de Reportes -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="background: #E8F8F5; color: #16A085; padding: 8px; border-radius: 8px; font-size: 16px; display: inline-block; margin-bottom: 12px;">🛡️</span>
+                        <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0 0 6px 0;">Auditoría de Reportes</h3>
+                        <p style="color: #777; font-size: 12px; margin: 0 0 20px 0;">Registro de seguridad sobre accesos, descargas y modificaciones en el sistema.</p>
+                    </div>
+                    <button onclick="window.location.href='auditoria_reportes.html'" style="background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Generar reporte ➔</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+<script src="reportes.js"></script>
+</body>
+</html>

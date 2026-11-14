@@ -1,0 +1,150 @@
+/* ===================================================
+  Módulo de Reportes 
+   =================================================== */
+
+/* --- Reset y General --- */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body.dashboard-body {
+    background-color: #FAF8F5;
+    color: #333333;
+    margin: 0;
+}
+
+/* --- Layout Principal --- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* --- BARRA LATERAL --- */
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #EAE3D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.sidebar-logo-section {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid #EAE3D9;
+}
+
+.sidebar-logo-section h2 {
+    font-size: 15px;
+    color: #67412E;
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar-logo-section span {
+    font-size: 10px;
+    color: #777777;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: #67412E;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: #FAF8F5;
+    color: #D97706;
+}
+
+.menu-item.active {
+    color: #D97706;
+    background-color: #FFF3E0;
+    border-left: 4px solid #D97706;
+    font-weight: bold;
+}
+
+.sidebar-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #EAE3D9;
+}
+
+.logout-btn {
+    color: #C0392B !important;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #FDEDEC !important;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #FAF8F5;
+    min-width: 0; /* Previene desbordamiento en flex child */
+}
+
+/* --- Botones e Interacciones --- */
+button {
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    filter: brightness(0.96);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- Tablas y Registros --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+table tbody tr:hover {
+    background-color: #FFFDF9;
+}
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+        min-width: 200px;
+    }
+    .main-content {
+        padding: 20px;
+    }
+}

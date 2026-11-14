@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Recetas - Pan en su Punto</title>
+    <link rel="stylesheet" href="recetas.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!---Barra Lateral--->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item  active">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Barra Superior -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 8px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; width: 300px;">
+                    <span>🔍</span>
+                    <input type="text" id="inputBuscarReceta" placeholder="Buscar receta..." style="border: none; outline: none; width: 100%; font-size: 13px; background: transparent; color: #333;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 18px; cursor: pointer;">📅</span>
+                    <span style="font-size: 18px; cursor: pointer;">🔔</span>
+                    <div style="width: 32px; height: 32px; background: #67412E; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold;">MP</div>
+                </div>
+            </div>
+
+            <!-- Cabecera del Módulo -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
+                <div>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 0; display: flex; align-items: center; gap: 10px;">
+                        📖 Gestión de Recetas
+                    </h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Consulta el rendimiento y costo de producción de la panadería.</p>
+                </div>
+                <button onclick="window.location.href='nueva_receta.html'" style="background: #D97706; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);">
+                    + Nueva Receta
+                </button>
+            </div>
+
+            <!-- Filtros Superiores -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: white; padding: 15px 20px; border: 1px solid #EAE3D9; border-radius: 12px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase;">Filtrar por:</span>
+                    <button style="background: #FFF3E0; color: #D97706; border: 1px solid #D97706; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer;">Todas</button>
+                    <button style="background: #FAF8F5; color: #555; border: 1px solid #EAE3D9; padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer;">Masas</button>
+                    <button style="background: #FAF8F5; color: #555; border: 1px solid #EAE3D9; padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer;">Bollería</button>
+                </div>
+                <div style="display: flex; gap: 8px; color: #777; font-size: 14px;">
+                    <span style="cursor: pointer; background: #EAE3D9; padding: 4px 8px; border-radius: 4px;">☰</span>
+                    <span style="cursor: pointer; padding: 4px 8px;">⊞</span>
+                </div>
+            </div>
+
+            <!-- Tabla de Recetas -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #EAE3D9; background: #FAF8F5;">
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Código</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Producto Terminado</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Rendimiento</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Costo Total</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Estado</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold; text-align: right;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaRecetas">
+                        <tr style="border-bottom: 1px solid #EAE3D9; cursor: pointer;" onclick="window.location.href='detalle_receta.html'">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">R-001</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">🍞 Masa Madre Clásica</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;"><span style="background: #F2F3F4; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">5 Kg</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">$12.500</td>
+                            <td style="padding: 15px;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● Activo</span></td>
+                            <td style="padding: 15px; text-align: right; color: #D97706; font-weight: bold; font-size: 13px;">Ver &gt;</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9; cursor: pointer;" onclick="window.location.href='detalle_receta.html'">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">R-002</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">🧀 Pandebono Tradicional</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;"><span style="background: #F2F3F4; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">30 Unds</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">$9.800</td>
+                            <td style="padding: 15px;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● Activo</span></td>
+                            <td style="padding: 15px; text-align: right; color: #D97706; font-weight: bold; font-size: 13px;">Ver &gt;</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9; cursor: pointer;" onclick="window.location.href='detalle_receta.html'">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">R-003</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">🟡 Buñuelos Especiales</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;"><span style="background: #F2F3F4; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">50 Unds</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">$14.200</td>
+                            <td style="padding: 15px;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● Activo</span></td>
+                            <td style="padding: 15px; text-align: right; color: #D97706; font-weight: bold; font-size: 13px;">Ver &gt;</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9; cursor: pointer;" onclick="window.location.href='detalle_receta.html'">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #333;">R-004</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555; font-weight: bold;">🥮 Roscón de Arequipe</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;"><span style="background: #F2F3F4; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">20 Unds</span></td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">$11.500</td>
+                            <td style="padding: 15px;"><span style="background: #FADBD8; color: #C0392B; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px; display: inline-block;">● Inactivo</span></td>
+                            <td style="padding: 15px; text-align: right; color: #D97706; font-weight: bold; font-size: 13px;">Ver &gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Paginación -->
+                <div style="padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #FAF8F5;">
+                    <span style="font-size: 12px; color: #777;">Mostrando 4 de 124 recetas</span>
+                    <div style="display: flex; gap: 10px;">
+                        <button style="background: white; border: 1px solid #EAE3D9; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&lt;</button>
+                        <button style="background: #D97706; color: white; border: none; padding: 5px 10px; border-radius: 4px; font-weight: bold;">1</button>
+                        <button style="background: white; border: 1px solid #EAE3D9; padding: 5px 10px; border-radius: 4px; cursor: pointer;">2</button>
+                        <button style="background: white; border: 1px solid #EAE3D9; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="recetas.js"></script>
+</body>
+</html>

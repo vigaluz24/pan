@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Proveedor - Pan en su Punto</title>
+    <link rel="stylesheet" href="inventario.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+       <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item active">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 40px; background: #FAF8F5; flex: 1;">
+            
+            <div style="max-width: 750px; margin: 0 auto;">
+                
+                <!-- VISTA 1: FORMULARIO DE NUEVO PROVEEDOR -->
+                <div id="seccionFormularioProveedor">
+                    <span style="font-size: 11px; color: #777; font-weight: bold; text-transform: uppercase;">Directorio / Nuevo Proveedor</span>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 4px 0 5px 0;">Registrar Nuevo Proveedor</h1>
+                    <p style="color: #777; font-size: 13px; margin-bottom: 25px; border-bottom: 1px solid #EAE3D9; padding-bottom: 10px;">Ingresa los datos de la empresa y persona de contacto comercial.</p>
+
+                    <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+                        
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">NOMBRE DE LA EMPRESA *</label>
+                                <input type="text" id="inputEmpresa" placeholder="Ej. Molinos del Sur S.A." style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                            </div>
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">NIT / ID *</label>
+                                <input type="text" id="inputNit" placeholder="Ej. 900.456.789-0" style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">PERSONA DE CONTACTO</label>
+                                <input type="text" placeholder="Ej. Ana María Gómez" style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                            </div>
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">TELÉFONO / MÓVIL</label>
+                                <input type="text" placeholder="Ej. +57 320 456 7890" style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">DIRECCIÓN COMERCIAL</label>
+                            <input type="text" placeholder="Ej. Calle 45 # 20-15, Bodega 3" style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end; gap: 15px; border-top: 1px solid #EAE3D9; padding-top: 20px;">
+                            <button onclick="window.location.href='directorio_proveedores.html'" style="background: white; border: 1px solid #EAE3D9; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; color: #555; cursor: pointer;">Cancelar</button>
+                            <button onclick="guardarProveedor()" style="background: #D97706; color: white; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">Guardar Proveedor</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- VISTA 2: TARJETA DE CONFIRMACIÓN (Inicia oculta) -->
+                <div id="seccionConfirmacionProveedor" style="display: none; background: white; max-width: 520px; margin: 40px auto; border-radius: 12px; padding: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 1px solid #EAE3D9; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">✅</div>
+                    <h2 style="color: #67412E; font-size: 20px; font-weight: bold; margin-bottom: 10px;">¡Proveedor registrado con éxito!</h2>
+                    <p style="color: #777; font-size: 13px; margin-bottom: 20px;" id="textoResumenProveedor">La empresa ha sido añadida correctamente al directorio de proveedores.</p>
+                    
+                    <div style="background: #FFF8EE; border: 1px solid #EAE3D9; border-radius: 8px; padding: 15px; margin-bottom: 25px; text-align: left;">
+                        <div style="font-size: 12px; color: #555; margin-bottom: 6px;">📋 <strong>Estado:</strong> Activo en el Directorio</div>
+                        <div style="font-size: 12px; color: #555;">📝 Disponible para órdenes de compra y recepción de insumos.</div>
+                    </div>
+
+                    <!-- Botón que lleva directamente de regreso al Directorio de Proveedores -->
+                    <button onclick="window.location.href='directorio_proveedores.html'" style="background: #D97706; color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; width: 100%;">
+                        Volver al Directorio de Proveedores ➔
+                    </button>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function guardarProveedor() {
+            const empresa = document.getElementById('inputEmpresa').value.trim();
+            
+            // Ocultar el formulario y mostrar la tarjeta de confirmación corporativa
+            document.getElementById('seccionFormularioProveedor').style.display = 'none';
+            document.getElementById('seccionConfirmacionProveedor').style.display = 'block';
+
+            if (empresa) {
+                document.getElementById('textoResumenProveedor').innerText = `La empresa "${empresa}" ha sido registrada y agregada correctamente al directorio.`;
+            }
+        }
+    </script>
+</body>
+</html>

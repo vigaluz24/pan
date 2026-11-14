@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Principal</title>
+    <link rel="stylesheet" href="Style.css">
+ </head>   
+ <body>
+<!--Dashboard principal-->
+<div id="appSection" class="app-layout" style="display: flex; min-height: 100vh; margin: 0; padding: 0;">
+    <!--Barra Lateral-->
+    <aside class="sidebar" style="width: 250px; min-width: 250px; background-color: #FFFFFF; border-right: 1px solid #EAE3D9; display: flex; flex-direction: column; justify-content: space-between; height: 100vh; position: sticky; top: 0;">
+            <div class="sidebar-logo-section">
+                <img src="logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item active">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="Index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+    <!-- Contenido principal-->
+     <div class="main-content">
+        <!--Barra Superior-->
+        <header class="top-bar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Burcar en el tablero... ">
+            </div>
+            <div class="top-actions">
+                <span class = "icon-btn">🔔</span>
+                <span class ="icon-btn">❓</span>
+            </div>
+        </header>
+        <!--Cuerpo del panel-->
+         <div class="dashboard-content">
+                <div class="dashboard-header-row">
+                    <div>
+                        <h1 class="dashboard-title">Panel de Inicio</h1>
+                        <p class="dashboard-subtitle">Resumen operativo de hoy</p>
+                    </div>
+                    <button class="btn-nueva-venta">+ Nueva venta</button>
+                </div>  
+        <!-- Tarjetas de métricas-->
+         <div class="metrics-grid">
+            <!--Ventas del día-->
+            <div class="card metric-card">
+                <div class="metric-header">
+                    <span>Ventas del día</span>
+                    <span class="badge-green">📈 +12%</span>
+                </div>
+                <div class="metric-value">$850.000 COP</div>
+                <div class="mini-chart">
+                    <div class="chart-line"></div>
+                </div>
+            </div>
+            <!--Producción Activa-->
+            <div class="card metric-card">
+                        <div class="metric-header">
+                            <span>Producción Activa</span>
+                            <span>📋</span>
+                        </div>
+                        <div class="production-info">
+                            <div class="circular-progress">65%</div>
+                            <div>
+                                <div class="prod-number">4 Lotes</div>
+                                <div class="prod-badge">En horneado y reposo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alertas de Inventario -->
+                    <div class="card metric-card alert-card">
+                        <div class="metric-header">
+                            <span>Alertas de Inventario</span>
+                            <span>⚠️</span>
+                        </div>
+                        <div class="alert-value">3 Insumos</div>
+                        <div class="alert-badge">🔴 Stock crítico detectado</div>
+                    </div>
+                </div>
+                <!--Actividad Reciente y Accesos Rápidos-->
+                <div class="dashboard-bottom-grid">
+                    <!--Actividad Reciente-->
+                    <div class="card activity-card">
+                        <h3>Actividad Reciente</h3>
+                        <ul class="activity-list">
+                            <li>
+                                <div class="activity-icon">🍞</div>
+                                <div class="activity-details">
+                                    <strong>Venta completada #TRX-9824</strong>
+                                    <span>Mostrador principal- Cliente general</span>
+                                    </div>
+                                    <span class="time-ago">Hace 5 min</span>
+                            </li>
+                            <li>
+                                <div class="activity-icon">💸</div>
+                                <div class="activity-details">
+                                    <strong>Salida de caja menor</strong>
+                                    <span>Compra urgente de levadura fresca</span>
+                                </div>
+                                <span class="time-ago">Hace 45 min</span>
+                            </li>
+                            <li>
+                                <div class="activity-icon">🥐</div>
+                                <div class="activity-details">
+                                    <strong>Lote de Croissant finalizado</strong>
+                                    <span>45 unidades trasladadas a mostrador</span>
+                                </div>
+                                <span class="time-ago">Hace 2 horas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Accesos Rápidos-->
+                    <div class="card shortcuts-card">
+                        <h3>Accesos Rápidos</h3>
+                        <div class="shortcuts-item">
+                            <span>📦 Abrir turno de caja</span>
+                            <span>➔</span>
+                        </div>
+                        <div class="shortcuts-item">
+                            <span>➕ Añadir producción</span>
+                            <span>➔</span>
+                        </div>
+                        <div class="shortcuts-item">
+                            <span>📖 Consultar recetario</span>
+                            <span>➔</span>
+                        </div>
+                    </div>
+                </div>
+         </div>
+     </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

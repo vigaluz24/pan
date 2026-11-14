@@ -1,0 +1,457 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Ventas - Pan en su Punto</title>
+    <link rel="stylesheet" href="../Style.css">
+    <link rel="stylesheet" href="ventas.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="ventas.html" class="menu-item active">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- ========================================== -->
+            <!-- VISTA 1: DASHBOARD PRINCIPAL DE VENTAS     -->
+            <!-- ========================================== -->
+            <div id="vistaDashboardVentas" class="module-container">
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px;">
+                    <button class="btn-ingresar" style="width: auto; padding: 8px 16px; font-size: 13px;" onclick="mostrarVista('vistaCatalogoPOS')">Terminal POS</button>
+                    <button class="btn-secondary" style="font-size: 13px;" onclick="location.href='historial.html'">Historial de Ventas</button>
+                    <button class="btn-secondary" style="font-size: 13px;" onclick="location.href='impuestos.html'">Configuración</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                    <!-- Tarjeta: Nueva Venta / POS -->
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; background: #FFFBF7; border: 1px solid #E8D5C4;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <div style="font-size: 24px;">🛒</div>
+                                <span style="background: #D97706; color: white; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: bold;">POS EXPRESS</span>
+                            </div>
+                            <h3 style="color: #67412E; font-size: 18px; margin-bottom: 5px;">Nueva Venta / POS</h3>
+                            <p class="subtitle">Crear orden rápida, cobros y facturación de mostrador.</p>
+                        </div>
+                        <button class="btn-ingresar" style="margin-top: 20px; background: #D97706 !important;" onclick="mostrarVista('vistaCatalogoPOS')">Iniciar Orden</button>
+                    </div>
+
+                    <!-- Tarjeta: Ingresos del Día -->
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span class="subtitle" style="font-size: 11px;">INGRESOS DEL DÍA</span>
+                                <span style="background: #D4EFDF; color: #196F3D; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold;">+12% vs ayer</span>
+                            </div>
+                            <h2 style="color: #D97706; font-size: 24px; margin-bottom: 10px;">$ 4.950.000 <span style="font-size: 12px; font-weight: normal; color: #555;">COP</span></h2>
+                            <span class="subtitle" style="font-size: 11px; display: block; margin-bottom: 6px;">DESGLOSE DE RECAUDOS</span>
+                        </div>
+                        <div style="font-size: 11px; color: #555; display: flex; justify-content: space-between; background: #FAF8F5; padding: 8px; border-radius: 6px;">
+                            <span>Efectivo: <strong>$2.650.000</strong></span>
+                            <span>Tarjeta: <strong>$1.580.000</strong></span>
+                            <span>Transf: <strong>$720.000</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Gestión de Caja -->
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span class="subtitle" style="font-size: 11px;">GESTIÓN DE CAJA</span>
+                                <span style="background: #D4EFDF; color: #196F3D; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold;">● Caja Abierta</span>
+                            </div>
+                            <h3 style="color: #67412E; font-size: 16px; margin-bottom: 15px;">Turno Mañana</h3>
+                        </div>
+                        <button class="btn-secondary" style="width: 100%; text-align: center; border-color: #D97706; color: #D97706;" onclick="location.href='caja.html'">Arqueo / Movimientos</button>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="card quick-card" onclick="mostrarVista('vistaCatalogoPOS')" style="cursor: pointer;">
+                        <h4 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">Catálogo de Productos / POS</h4>
+                        <p class="subtitle" style="font-size: 12px; margin-bottom: 15px;">Mostrador y vitrina</p>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="color: #D97706; font-size: 12px; font-weight: bold;">Abrir catálogo →</span>
+                        </div>
+                    </div>
+
+                    <div class="card quick-card" onclick="location.href='historial.html'" style="cursor: pointer;">
+                        <h4 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">Historial de Ventas</h4>
+                        <p class="subtitle" style="font-size: 12px; margin-bottom: 15px;">Auditoría de tickets y filtros</p>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="color: #D97706; font-size: 12px; font-weight: bold;">Ver historial →</span>
+                        </div>
+                    </div>
+
+                    <div class="card quick-card" onclick="location.href='egresos.html'" style="cursor: pointer;">
+                        <h4 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">Registrar Egreso de Caja</h4>
+                        <p class="subtitle" style="font-size: 12px; margin-bottom: 15px;">Control de salidas y proveedores</p>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="color: #D97706; font-size: 12px; font-weight: bold;">Registrar salida →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+                    <div class="card quick-card" onclick="location.href='impuestos.html'" style="cursor: pointer;">
+                        <h4 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">⚙️ Configuración de Impuestos</h4>
+                        <p class="subtitle" style="font-size: 12px; margin-bottom: 15px;">Reglas de IVA, tasas y exenciones fiscales</p>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="color: #D97706; font-size: 12px; font-weight: bold;">Configurar IVA →</span>
+                        </div>
+                    </div>
+
+                    <div class="card quick-card" onclick="location.href='descuentos.html'" style="cursor: pointer;">
+                        <h4 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">🏷️ Aplicar Descuentos y Promociones</h4>
+                        <p class="subtitle" style="font-size: 12px; margin-bottom: 15px;">Porcentajes, montos fijos y cupones</p>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="color: #D97706; font-size: 12px; font-weight: bold;">Gestionar descuentos →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- VISTA 2: CATÁLOGO y Carriito de ventas     -->
+            <!-- ========================================== -->
+            <div id="vistaCatalogoPOS" class="module-container" style="display: none;">
+                <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <button class="btn-secondary" onclick="mostrarVista('vistaDashboardVentas')">← Volver al Dashboard</button>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-secondary" onclick="location.href='historial.html'">Historial de Ventas</button>
+                        <button class="btn-secondary" onclick="location.href='impuestos.html'">Configuración</button>
+                    </div>
+                </div>
+
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="search-bar-container" style="margin-bottom: 15px;">
+                        <input type="text" id="inputBuscarProducto" placeholder="🔍 Buscar producto en vitrina..." class="search-input" style="background: white;">
+                    </div>
+
+                    <!-- Grid de Productos con nombres y precios estándar -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px;">
+                        
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="pan-aliño.jpeg" alt="Pan Aliñado" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Pan Aliñado</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$2.500</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Pan Aliñado', 2500)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="pandebono.jpeg" alt="Pandebono" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Pandebono</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$2.000</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Pandebono', 2000)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="buñuelos.jpeg" alt="Buñuelos" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Buñuelos</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$1.800</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Buñuelos', 1800)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="roscon.jpeg" alt="Roscón" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Roscón</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$3.500</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Roscón', 3500)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="tinto.jpeg" alt="Tinto" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Tinto</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$1.500</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Tinto', 1500)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                        <div class="card" style="text-align: center; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <img src="avena.jpeg" alt="Avena cubana" style="width: 100%; height: 85px; object-fit: cover; border-radius: 6px; margin-bottom: 6px;">
+                                <h4 style="font-size: 14px; color: #67412E; margin-bottom: 2px;">Avena cubana</h4>
+                                <p style="font-size: 13px; color: #D97706; font-weight: bold; margin-bottom: 8px;">$4.000</p>
+                            </div>
+                            <button onclick="agregarAlCarrito('Avena cubana', 4000)" style="background: #D97706; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer; font-size: 15px; font-weight: bold;">+</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Resumen del Carrito Dinámico -->
+                    <div class="card" style="padding: 15px;">
+                        <span class="subtitle" style="font-size: 13px; font-weight: bold; display: block; margin-bottom: 8px;">Carrito de ventas</span>
+                        <div id="listaCarrito" style="font-size: 13px; margin-bottom: 12px; color: #555; min-height: 40px;">
+                            <em>No hay productos agregados aún.</em>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 15px; margin-bottom: 12px; border-top: 1px solid #EAE3D9; padding-top: 8px;">
+                            <span>Total Carrito:</span>
+                            <span id="totalCarritoTexto" style="color: #D97706;">$0</span>
+                        </div>
+                        <button class="btn-ingresar" style="width: 100%; background: #D97706 !important; padding: 10px;" onclick="prepararPago()">Proceder al pago →</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========================================== -->
+            <!-- VISTA 3: Procesamiento de pago    -->
+            <!-- ========================================== -->
+            <div id="vistaProcesamientoPago" class="module-container" style="display: none;">
+                <div style="margin-bottom: 15px;">
+                    <button class="btn-secondary" onclick="mostrarVista('vistaCatalogoPOS')">← Volver al Catálogo</button>
+                </div>
+
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div class="card" style="background: #FFF; border: 1px solid #EAE3D9; padding: 25px;">
+                        <h3 style="color: #67412E; font-size: 20px; margin-bottom: 20px; text-align: center; border-bottom: 1px solid #EAE3D9; padding-bottom: 10px;">Procesamiento de pago</h3>
+                        
+                        <div style="background: #FAF8F5; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px;">
+                                <span>Subtotal</span>
+                                <span id="pagoSubtotal">$0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px;">
+                                <span>Impuestos (0%)</span>
+                                <span>$0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; color: #D97706; border-top: 1px dashed #D97706; padding-top: 10px;">
+                                <span>Total a pagar</span>
+                                <span id="pagoTotal">$0</span>
+                            </div>
+                        </div>
+                        <!-- NUEVO: Botón para ir a aplicar descuentos desde el pago -->
+                        <button class="btn-secondary" style="width: 100%; margin-bottom: 20px; background: #FFF8EE; color: #D97706; border: 1px dashed #D97706; padding: 10px; font-weight: bold; cursor: pointer; border-radius: 6px;" onclick="irADescuentosDesdePago()">
+                            🏷️ Aplicar descuento o promoción a esta orden
+                        </button>
+                        <!-- Teclado Numérico POS Funcional -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px;">
+                            <button class="btn-secondary" onclick="tecladoPOS('1')" style="padding: 12px; font-weight: bold; font-size: 14px;">1</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('2')" style="padding: 12px; font-weight: bold; font-size: 14px;">2</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('3')" style="padding: 12px; font-weight: bold; font-size: 14px;">3</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('4')" style="padding: 12px; font-weight: bold; font-size: 14px;">4</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('5')" style="padding: 12px; font-weight: bold; font-size: 14px;">5</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('6')" style="padding: 12px; font-weight: bold; font-size: 14px;">6</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('7')" style="padding: 12px; font-weight: bold; font-size: 14px;">7</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('8')" style="padding: 12px; font-weight: bold; font-size: 14px;">8</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('9')" style="padding: 12px; font-weight: bold; font-size: 14px;">9</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('C')" style="padding: 12px; font-weight: bold; font-size: 14px;">C</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('0')" style="padding: 12px; font-weight: bold; font-size: 14px;">0</button>
+                            <button class="btn-secondary" onclick="tecladoPOS('BORRAR')" style="padding: 12px; font-weight: bold; font-size: 14px;">⌫</button>
+                        </div>
+
+                        <button class="btn-ingresar" style="width: 100%; background: #D97706 !important; margin-bottom: 10px; padding: 10px;" onclick="mostrarVista('vistaConfirmacionVenta')">Confirmar Pago ✓</button>
+                        <button class="btn-secondary" style="width: 100%; text-align: center; color: #777; padding: 8px;" onclick="mostrarVista('vistaCatalogoPOS')">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========================================== -->
+            <!-- VISTA 4: CONFIRMACIÓN Y VENTA EXITOSA      -->
+            <!-- ========================================== -->
+            <div id="vistaConfirmacionVenta" class="module-container" style="display: none;">
+                <div class="success-top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="color: #D97706; margin-bottom: 4px;">Venta exitosa</h2>
+                        <p class="subtitle">Transacción registrada correctamente en caja</p>
+                    </div>
+                    <div class="header-actions" style="display: flex; gap: 10px;">
+                        <button class="btn-secondary" onclick="window.print()">🖨️ Imprimir</button>
+                        <button class="btn-secondary">📧 Enviar por correo</button>
+                        <button class="btn-ingresar" onclick="mostrarVista('vistaCatalogoPOS')">➕ Nueva venta</button>
+                    </div>
+                </div>
+
+                <!-- RECIBO DE CAJA ESTILIZADO Y CENTRADO -->
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="receipt-card" style="background: white; padding: 25px; border-radius: 12px; border: 1px solid #EAE3D9; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div class="text-center" style="text-align: center; margin-bottom: 20px;">
+                            <img src="../logo.jpeg.jpeg" alt="Pan en su Punto Logo" style="width: 70px; height: auto; margin-bottom: 5px;">
+                            <h3 style="color: #67412E; margin: 0;">Pan en su punto</h3>
+                            <p class="subtitle" style="margin: 2px 0;">Software de gestión</p>
+                            <br>
+                            <p class="subtitle" style="font-size: 11px;">Nit: 900.123.456-1<br>Calle 123 #45-67 Bogotá<br>Tel +57 (601) 867 - 5309</p>
+                        </div>
+                        <hr style="border: none; border-top: 1px dashed #EAE3D9; margin: 15px 0;">
+                        <div style="font-size: 13px; margin-bottom: 15px; display: flex; justify-content: space-between;">
+                            <span>Cliente: <strong>mostrador</strong></span>
+                            <span>Cajero: <strong>maría g.</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 13px; border-bottom: 1px solid #EAE3D9; padding-bottom: 8px; margin-bottom: 10px;">
+                            <span>Artículo</span>
+                            <span>cant</span>
+                            <span>precio</span>
+                            <span>total</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
+                            <span>Pan Aliño</span>
+                            <span>1</span>
+                            <span>$2.500</span>
+                            <strong>$2.500</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
+                            <span>Pandebono</span>
+                            <span>1</span>
+                            <span>$2.000</span>
+                            <strong>$2.000</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 15px;">
+                            <span>Buñuelos</span>
+                            <span>1</span>
+                            <span>$1.800</span>
+                            <strong>$1.800</strong>
+                        </div>
+                        <hr style="border: none; border-top: 1px dashed #EAE3D9; margin: 15px 0;">
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                            <span>Subtotal</span>
+                            <span>$6.300</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 12px;">
+                            <span>Impuestos (0%)</span>
+                            <span>$0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; color: #D97706; border-top: 2px solid #EAE3D9; padding-top: 10px;">
+                            <span>Total</span>
+                            <span>$6.300 COP</span>
+                        </div>
+                        <p style="text-align: center; font-size: 10px; color: #777; margin-top: 20px;">¡Gracias por su compra!<br>Las devoluciones se aceptan solo en las primeras 2 horas con recibo original (Ley 1480 de 2011)</p>
+                    </div>
+                    <!-- BOTÓN PARA IR AL DETALLE DE VENTA -->
+                    <button class="btn-secondary" style="width: 100%; text-align: center; padding: 10px; font-weight: bold; color: #67412E;" onclick="mostrarVista('vistaDetalleVenta')">
+                        🔍 Ver detalles y opciones de anulación de esta venta
+                    </button>
+                </div>
+            </div>
+            <!-- ========================================== -->
+            <!-- VISTA 5: DETALLE DE VENTA Y ANULACIÓN      -->
+            <!-- ========================================== -->
+           <div id="vistaDetalleVenta" class="module-container" style="display: none;">
+            
+            <!-- Barra superior de navegación -->
+             <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <p class="subtitle" style="margin-bottom: 5px; cursor: pointer; color: #D97706; font-weight: bold;" onclick="mostrarVista('vistaConfirmacionVenta')">
+                ← Volver a confirmación de venta
+            </p>
+            <h2 style="color: #67412E; font-size: 26px; margin: 0;">Detalles de venta</h2>
+            <p class="subtitle" id="detalleFechaHora" style="font-size: 13px; color: #777;">--</p>
+        </div>
+        <button class="btn-secondary" onclick="window.print()" style="display: flex; align-items: center; gap: 6px;">
+            🖨️ Imprimir recibo
+        </button>
+    </div>
+
+    <!-- Contenedor en dos columnas -->
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; align-items: start;">
+        
+        <!-- Columna Izquierda: Artículos comprados dinámicos y totales -->
+        <div class="card" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #EAE3D9;">
+            <h3 style="color: #67412E; font-size: 16px; margin-bottom: 15px; border-bottom: 1px solid #EAE3D9; padding-bottom: 8px;">
+                📦 Artículos comprados
+            </h3>
+
+            <!-- Contenedor dinámico donde se insertarán los productos del carrito -->
+            <div id="detalleListaArticulos">
+                <!-- Se llena con JavaScript -->
+            </div>
+
+            <!-- Resumen de Totales Dinámicos -->
+            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; color: #555;">
+                <span>Subtotal</span>
+                <span id="detalleSubtotal">$0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 15px; color: #555;">
+                <span>Impuestos (0%)</span>
+                <span>$0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; color: #D97706; border-top: 2px dashed #EAE3D9; padding-top: 12px;">
+                <span>Total</span>
+                <span id="detalleTotal">$0 COP</span>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Detalles de pago y Anulación -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- Tarjeta de Detalles de Pago -->
+            <div class="card" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #EAE3D9;">
+                <h3 style="color: #67412E; font-size: 16px; margin-bottom: 15px; border-bottom: 1px solid #EAE3D9; padding-bottom: 8px;">
+                    💳 Detalles de pago
+                </h3>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 10px;">
+                    <span style="color: #777;">Método</span>
+                    <strong id="detalleMetodoPago" style="color: #333;">Efectivo</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 10px;">
+                    <span style="color: #777;">Monto recibido</span>
+                    <strong id="detalleMontoRecibido" style="color: #333;">$0</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                    <span style="color: #777;">Cajero</span>
+                    <strong style="color: #333;">👤 María G.</strong>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Anulación de Transacción -->
+            <div class="card" style="background: #FFFBFB; padding: 20px; border-radius: 12px; border: 1px solid #F5D6D6;">
+                <h3 style="color: #C53030; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                    ⚠️ Anular transacción
+                </h3>
+                <p style="font-size: 11px; color: #666; margin-bottom: 15px; line-height: 1.4;">
+                    Esta acción revertirá el pago y retornará los artículos al inventario (RF-47). Esta operación no se puede deshacer.
+                </p>
+
+                <label style="font-size: 11px; font-weight: bold; color: #444; display: block; margin-bottom: 4px;">Motivo de anulación (CU-21)</label>
+                <select id="selectMotivoAnulacion" class="search-input" style="background: white; width: 100%; margin-bottom: 12px; font-size: 13px;">
+                    <option value="">Seleccione un motivo...</option>
+                    <option value="Error en cobro">Error en cobro</option>
+                    <option value="Devolución por cliente">Devolución por cliente</option>
+                    <option value="Anulación por cambio de producto">Anulación por cambio de producto</option>
+                </select>
+
+                <label style="font-size: 11px; font-weight: bold; color: #444; display: block; margin-bottom: 4px;">Notas adicionales</label>
+                <textarea id="txtNotasAnulacion" placeholder="Detalles de la anulación..." class="search-input" style="background: white; width: 100%; height: 60px; resize: none; margin-bottom: 15px; font-size: 13px; padding: 8px;"></textarea>
+
+                <button onclick="ejecutarAnulacionVenta()" style="width: 100%; background: #C53030; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px;">
+                    ↩ Anular venta
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+        </main>
+    </div>
+    <!-- Archivo JavaScript vinculado -->
+    <script src="ventas.js"></script>
+</body>
+</html>

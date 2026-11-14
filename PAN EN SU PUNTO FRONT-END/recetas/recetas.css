@@ -1,0 +1,153 @@
+/* ===================================================
+   Módulo de Recetas
+   =================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body.dashboard-body {
+    background-color: #FAF8F5;
+    color: #333333;
+    min-height: 100vh;
+}
+
+/* Layout Principal */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Navigation (Barra Lateral Estándar) */
+.sidebar {
+    width: 250px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #EAE3D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.sidebar-logo-section {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid #EAE3D9;
+}
+
+.sidebar-logo-section h2 {
+    font-size: 15px;
+    color: #67412E;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.sidebar-logo-section span {
+    font-size: 10px;
+    color: #777777;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: #67412E;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: #FAF8F5;
+    color: #D97706;
+}
+
+.menu-item.active {
+    color: #D97706;
+    background-color: #FFF3E0;
+    border-left: 4px solid #D97706;
+    font-weight: bold;
+}
+
+.sidebar-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #EAE3D9;
+}
+
+.logout-btn {
+    color: #C0392B !important;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #FDEDEC !important;
+}
+
+/* Contenido Principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #FAF8F5;
+    overflow-y: auto;
+}
+
+/* Tablas Estandarizadas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 15px;
+    font-size: 12px;
+    color: #67412E;
+    font-weight: bold;
+    text-align: left;
+    background-color: #FAF8F5;
+    border-bottom: 1px solid #EAE3D9;
+}
+
+td {
+    padding: 15px;
+    font-size: 13px;
+    color: #555555;
+    border-bottom: 1px solid #EAE3D9;
+}
+
+tr:hover td {
+    background-color: #FFFDF9;
+}
+
+/* Inputs y Selects */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    font-family: inherit;
+    border: 1px solid #EAE3D9;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #D97706;
+}

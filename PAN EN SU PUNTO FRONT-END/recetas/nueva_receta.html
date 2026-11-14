@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Receta - Pan en su Punto</title>
+    <link rel="stylesheet" href="recetas.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item  active">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 0;">➕ Nueva Receta</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Vincula materias primas y define el proceso paso a paso.</p>
+                </div>
+                <button onclick="guardarReceta()" style="background: #D97706; color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">Guardar Receta</button>
+            </div>
+
+            <!-- Formulario Base -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin-bottom: 15px;">Información Base</h3>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 15px;">
+                    <div>
+                        <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Nombre de la receta</label>
+                        <input type="text" id="txtNombreReceta" placeholder="Ej: Pan de Campo" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Rendimiento (Unidades / Kg)</label>
+                        <input type="text" id="txtRendimiento" placeholder="Ej: 12 Unidades o 5 Kg" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;">
+                    </div>
+                </div>
+
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Producto Terminado Asociado</label>
+                    <select id="selectProducto" style="width: 100%; padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; color: #333; outline: none; font-weight: bold;">
+                        <option value="Pandebono">🧀 Pandebono Tradicional</option>
+                        <option value="Buñuelos">🟡 Buñuelos Especiales</option>
+                        <option value="Pan Aliñado">🥐 Pan Aliñado</option>
+                        <option value="Roscón">🥮 Roscón de Arequipe</option>
+                        <option value="Pan de masa madre">🍞 Masa Madre Clásica</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Materias Primas -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin-bottom: 15px;">Materias Primas Requeridas</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                    <div style="display: flex; gap: 15px; align-items: center; background: #FAF8F5; padding: 10px; border-radius: 8px; border: 1px solid #EAE3D9;">
+                        <span style="font-size: 13px; color: #333; flex: 2;">🌾 Harina de Trigo W300</span>
+                        <input type="text" value="2.5 Kg" style="flex: 1; padding: 6px; border: 1px solid #EAE3D9; border-radius: 6px; font-size: 12px; background: white;">
+                        <span style="color: #C0392B; cursor: pointer; font-size: 14px;">🗑️</span>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center; background: #FAF8F5; padding: 10px; border-radius: 8px; border: 1px solid #EAE3D9;">
+                        <span style="font-size: 13px; color: #333; flex: 2;">💧 Agua Purificada Filtrada</span>
+                        <input type="text" value="1.75 L" style="flex: 1; padding: 6px; border: 1px solid #EAE3D9; border-radius: 6px; font-size: 12px; background: white;">
+                        <span style="color: #C0392B; cursor: pointer; font-size: 14px;">🗑️</span>
+                    </div>
+                </div>
+
+                <button style="background: none; border: 1px dashed #D97706; color: #D97706; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">+ Agregar otro ingrediente</button>
+            </div>
+
+            <!-- Paso a paso -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px;">
+                <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin-bottom: 15px;">Paso a paso de la preparación</h3>
+                <textarea rows="4" placeholder="Describe detalladamente los pasos para elaborar el producto..." style="width: 100%; padding: 12px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 13px; background: #FAF8F5; outline: none;"></textarea>
+            </div>
+
+        </main>
+    </div>
+
+<script src="recetas.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Materia Prima Proxima a Vencer - Pan en su Punto</title>
+    <link rel="stylesheet" href="reportes.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item active">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Cabecera -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                    <span style="font-size: 11px; color: #777; text-transform: uppercase; font-weight: bold;"><a href="reportes.html" style="color: #D97706; text-decoration: none;">Reportes</a> / Materia Prima Próxima a Vencer</span>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 4px 0 0 0;">Materia Prima Próxima a Vencer</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Consulta las materias primas e insumos próximos a alcanzar su fecha de vencimiento.</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button style="background: white; border: 1px solid #EAE3D9; color: #555; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Exportar PDF</button>
+                    <button style="background: white; border: 1px solid #EAE3D9; color: #555; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Exportar Excel</button>
+                </div>
+            </div>
+
+            <!-- Filtros de Vencimiento -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <label style="font-size: 12px; font-weight: bold; color: #67412E;">Próximos a vencer en:</label>
+                    <select style="padding: 10px; border: 1px solid #EAE3D9; border-radius: 8px; font-size: 12px; background: #FAF8F5; outline: none; width: 180px; color: #555;">
+                        <option>30 días</option>
+                        <option>15 días</option>
+                        <option>7 días</option>
+                    </select>
+                </div>
+                <button style="background: #D97706; color: white; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;">Generar reporte</button>
+            </div>
+
+            <!-- Tabla de Insumos Próximos a Vencer -->
+            <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #EAE3D9; background: #FAF8F5;">
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Código</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Materia prima / insumo</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Cantidad disponible</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Unidad</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Fecha de vencimiento</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold;">Días restantes</th>
+                            <th style="padding: 15px; font-size: 12px; color: #67412E; font-weight: bold; text-align: right;">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">MP-1024</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Levadura Fresca</td>
+                            <td style="padding: 15px; font-size: 13px; color: #C0392B; font-weight: bold;">2.5</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">kg</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">24 Nov 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #C0392B; font-weight: bold;">3</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #FDEDEC; color: #C0392B; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Crítico</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">MP-0855</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Mantequilla Artesanal</td>
+                            <td style="padding: 15px; font-size: 13px; color: #D35400; font-weight: bold;">15.0</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">kg</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">02 Dic 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #D35400; font-weight: bold;">12</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #FEF9E7; color: #D35400; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Atención</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">MP-0102</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Harina de Trigo Integral</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">150.0</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">kg</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">15 Dic 2026</td>
+                            <td style="padding: 15px; font-size: 13px; color: #16A085; font-weight: bold;">25</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Estable</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #EAE3D9;">
+                            <td style="padding: 15px; font-size: 13px; font-weight: bold; color: #D97706;">MP-0344</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">Azúcar Morena</td>
+                            <td style="padding: 15px; font-size: 13px; color: #333; font-weight: bold;">50.0</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">kg</td>
+                            <td style="padding: 15px; font-size: 13px; color: #555;">05 Ene 2027</td>
+                            <td style="padding: 15px; font-size: 13px; color: #16A085; font-weight: bold;">45</td>
+                            <td style="padding: 15px; text-align: right;"><span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Estable</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

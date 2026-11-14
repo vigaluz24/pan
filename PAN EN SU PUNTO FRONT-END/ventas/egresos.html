@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salida de Efectivo - Pan en su Punto</title>
+    <link rel="stylesheet" href="../Style.css">
+    <link rel="stylesheet" href="ventas.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="ventas.html" class="menu-item active">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.css" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../Index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <div class="module-header-flex">
+                <div>
+                    <h1 class="main-title" style="font-size: 24px;">Salida de Efectivo</h1>
+                    <p class="subtitle">Registra gastos y pagos a proveedores...</p>
+                </div>
+                <div class="card" style="padding: 8px 15px; font-size: 13px; background: #FDF4EB; border-color: #E8D5C4;">
+                    💼 Caja actual: <strong>$ 1.245.500 COP</strong>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <!-- Columna Izquierda -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <label class="subtitle" style="display: block; margin-bottom: 5px;">Monto de Salida</label>
+                        <div style="display: flex; align-items: center; border: 1px solid #EAE3D9; border-radius: 8px; padding: 10px 15px; background: white;">
+                            <span style="font-size: 18px; font-weight: bold; color: #D97706; margin-right: 8px;">$</span>
+                             <input type="number" id="inputMontoEgreso" value="0" placeholder="0" style="border: none; outline: none; width: 100%; font-size: 20px; font-weight: bold; color: #333;">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <label style="font-size: 13px; font-weight: bold; color: #67412E; display: block; margin-bottom: 6px;">Categoría de Gasto</label>
+                        <select class="search-input" style="margin-bottom: 15px; background: white;">
+                            <option>Pago a Proveedores</option>
+                            <option>Insumos menores (Harina/Leche)</option>
+                            <option>Gastos de caja menor</option>
+                        </select>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <label style="font-size: 13px; font-weight: bold; color: #67412E;">Descripción / Notas</label>
+                            <span style="font-size: 11px; color: #C0392B; font-weight: bold;">*Obligatorio</span>
+                        </div>
+                        <textarea class="search-input" placeholder="Escribe el detalle del gasto aquí..." style="height: 70px; resize: none; background: white;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <label style="font-size: 13px; font-weight: bold; color: #67412E; display: block; margin-bottom: 10px;">Recibo de Soporte</label>
+                        <div class="qr-placeholder" style="padding: 20px; margin-bottom: 0;">
+                            <div style="font-size: 30px;">☁️</div>
+                            <p style="font-size: 12px; color: #555; margin-top: 5px;">Arrastra un archivo o <span style="color: #D97706; font-weight: bold;">explora</span></p>
+                            <span style="font-size: 10px; color: #999;">JPG, PNG o PDF (Máx. 5MB)</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <label style="font-size: 13px; font-weight: bold; color: #67412E;">Firma del Cajero</label>
+                            <span style="font-size: 11px; color: #D97706; cursor: pointer; font-weight: bold;">Borrar Firma</span>
+                        </div>
+                        <div style="border: 1px dashed #D1C7BD; border-radius: 8px; height: 70px; display: flex; align-items: center; justify-content: center; background: #FAF8F5;">
+                            <span style="color: #BBB; font-size: 13px;">Firme Aquí</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button class="btn-secondary" onclick="location.href='ventas.html'">Cancelar</button>
+                <button class="btn-ingresar" style="background: #D97706 !important; padding: 10px 25px; font-weight: bold;" onclick="registrarEgresoYVolver()">Registrar Salida</button>
+            </div>
+        </main>
+    </div>
+     <script src="egresos.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Producción - Pan en su Punto</title>
+    <link rel="stylesheet" href="produccion.css"> 
+</head>
+<body class="dashboard-body">
+    <div class="app-layout">
+          <!--Barra Lateral-->
+    <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item active">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+    <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Cabecera del Módulo -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div>
+                    <h1 style="color: #67412E; font-size: 22px; font-weight: bold; margin: 0;">Módulo de Planificación y Control de Producción</h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Centro de mando para gestión de lotes de horneado, órdenes de trabajo y estados de obrador.</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="background: white; border: 1px solid #EAE3D9; padding: 6px 12px; border-radius: 6px; font-size: 12px; color: #555;">📅 Hoy: 24 Octubre</span>
+                    <button class="btn-secondary" style="background: white; border: 1px solid #EAE3D9; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;">Filtros Obrador</button>
+                </div>
+            </div>
+
+            <!-- Fila Superior de Métricas / Estado Rápido -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                
+                <!-- Tarjeta 1: Acción Principal (Nueva Orden) -->
+                <div style="background: #D97706; color: white; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);">
+                    <div>
+                        <span style="background: rgba(255,255,255,0.2); font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: bold; text-transform: uppercase;">Acción Principal</span>
+                        <h2 style="font-size: 18px; margin: 10px 0 5px 0;">Planificar Lote</h2>
+                        <p style="font-size: 12px; opacity: 0.9; margin: 0;">Crear orden de amasado y horneado para hoy.</p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <button onclick="window.location.href='nueva_orden.html'" style="background: white; color: #D97706; border: none; padding: 8px 15px; border-radius: 6px; font-weight: bold; font-size: 12px; cursor: pointer; width: 100%;">+ Nueva Orden de Producción</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: En Curso -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="background: #E8F5E9; color: #2E7D32; font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: bold;">EN CURSO</span>
+                            <span style="font-size: 11px; color: #777;">Órdenes Activas</span>
+                        </div>
+                        <h2 style="font-size: 24px; color: #333; margin: 10px 0 2px 0;">8 En Proceso</h2>
+                        <p style="font-size: 11px; color: #777; margin: 0;">En fermentación y horno (2 cámaras activas)</p>
+                    </div>
+                    <a href="ordenes_produccion.html" style="color: #D97706; font-weight: bold; font-size: 12px; text-decoration: none; margin-top: 10px; display: block;">Ver Órdenes de Producción ➔</a>
+                </div>
+
+                <!-- Tarjeta 3: Alertas de Obrador -->
+                <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="background: #FFF8E1; color: #F57F17; font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: bold;">REQUIERE ATENCIÓN</span>
+                            <span style="font-size: 11px; color: #777;">Alertas</span>
+                        </div>
+                        <h2 style="font-size: 24px; color: #D97706; margin: 10px 0 2px 0;">1 Bloqueada</h2>
+                        <p style="font-size: 11px; color: #777; margin: 0;">Falta de Harina Integral en Stock (Lote #082)</p>
+                    </div>
+                    <a href="produccion_bloqueada.html" style="color: #D97706; font-weight: bold; font-size: 12px; text-decoration: none; margin-top: 10px; display: block;">Ver Alertas / Bloqueos ➔</a>
+                </div>
+
+            </div>
+
+            <!-- Mosaico de Acciones Rápidas y Gestión de Órdenes -->
+            <div style="background: white; border: 1px solid #EAE3D9; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+                <h3 style="color: #67412E; font-size: 15px; margin-bottom: 4px;">Mosaico de Acciones Rápidas y Gestión de Órdenes</h3>
+                <p style="color: #777; font-size: 12px; margin-bottom: 20px;">Accede directamente a los procedimientos clave del flujo de elaboración y panificado.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                    
+                    <!-- Acción 1: Nueva Orden -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">📦 Nueva Orden de Producción</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Crear y asignar receta a lote de producción. Calcula mermas y reserva materia prima.</p>
+                        <a href="nueva_orden.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Iniciar orden ➔</a>
+                    </div>
+
+                    <!-- Acción 2: Historial de Órdenes -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">📋 Órdenes de Producción</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Listado general de órdenes planificadas y en curso. Seguimiento cronológico.</p>
+                        <a href="ordenes_produccion.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Explorar lista ➔</a>
+                    </div>
+
+                    <!-- Acción 3: Finalizar Orden -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">✅ Finalizar Orden de Producción</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Cerrar orden, registrar unidades reales horneadas, sobrantes y enviar a stock comercial.</p>
+                        <a href="finalizar_orden.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Cerrar lote ➔</a>
+                    </div>
+
+                    <!-- Acción 4: Editar Orden -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">✏️ Editar Orden</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Ajustar cantidades planificadas de lotes pendientes y recalcular ingredientes.</p>
+                        <a href="editar_orden.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Modificar lote ➔</a>
+                    </div>
+
+                    <!-- Acción 5: Anular Orden -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">🚫 Anular Orden</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Cancelar orden activa y devolver automáticamente los insumos al inventario.</p>
+                        <a href="anular_orden.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Anular orden ➔</a>
+                    </div>
+
+                    <!-- Acción 6: Ver Bloqueos -->
+                    <div style="border: 1px solid #EAE3D9; padding: 15px; border-radius: 8px; background: #FAF8F5;">
+                        <h4 style="font-size: 14px; color: #333; margin-bottom: 5px;">⚠️ Producción Bloqueada</h4>
+                        <p style="font-size: 11px; color: #777; margin-bottom: 15px;">Consultar alertas por desabastecimiento de materias primas e insumos.</p>
+                        <a href="produccion_bloqueada.html" style="color: #D97706; font-size: 12px; font-weight: bold; text-decoration: none;">Ver bloqueo ➔</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+ <script src="produccion.js"></script>
+</body>
+</html>

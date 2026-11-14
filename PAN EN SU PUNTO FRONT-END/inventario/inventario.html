@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Inventario - Pan en su Punto</title>
+    <link rel="stylesheet" href="inventario.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL (SIDEBAR UNIFICADA) -->
+        <aside class="sidebar">
+            <div class="sidebar-logo-section">
+                <img src="../logo.jpeg.jpeg" alt="Logo" class="sidebar-logo" style="width: 100px; height: auto;">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="../dashboard.html" class="menu-item">🏠 Inicio</a>
+                <a href="../ventas/ventas.html" class="menu-item">🛒 Ventas y POS</a>
+                <a href="../inventario/inventario.html" class="menu-item active">📦 Inventario</a>
+                <a href="../recetas/recetas.html" class="menu-item">📋 Recetas</a>
+                <a href="../produccion/produccion.html" class="menu-item">🍞 Producción</a>
+                <a href="../usuarios.html" class="menu-item">👥 Usuarios</a>
+                <a href="../reportes/reportes.html" class="menu-item">📊 Reportes</a>
+                <a href="../configuracion.html" class="menu-item">⚙️ Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="menu-item logout-btn">🚪 Salir</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" style="padding: 30px; background: #FAF8F5; flex: 1;">
+            
+            <!-- Barra Superior -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 8px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; width: 350px;">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Buscar insumo, lote o producto terminado..." style="border: none; outline: none; width: 100%; font-size: 13px; background: transparent; color: #333;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 12px; color: #777;">📅 Hoy: 24 Oct, 2024</span>
+                    <span style="font-size: 18px; cursor: pointer;">🔔</span>
+                    <div style="background: #FFF3E0; border: 1px solid #D97706; padding: 4px 10px; border-radius: 8px; font-size: 12px; color: #D97706; font-weight: bold;">
+                        👨‍🍳 Maestro Panadero (Jefe de Obrador)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cabecera del Módulo -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
+                <div>
+                    <span style="font-size: 11px; color: #777; text-transform: uppercase; font-weight: bold;">Sistema Central / Módulo de Inventario</span>
+                    <h1 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 4px 0 0 0;">
+                        Módulo de Inventario y Control de Stock
+                    </h1>
+                    <p style="color: #777; font-size: 13px; margin: 4px 0 0 0;">Centro de control para gestión de materia prima, producto terminado y mermas.</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button style="background: white; border: 1px solid #EAE3D9; color: #555; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">📤 Exportar Balance</button>
+                    <button onclick="window.location.href='entrada_inventario.html'" style="background: #D97706; color: white; border: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">+ Movimiento Rápido</button>
+                </div>
+            </div>
+
+            <!-- Tarjetas de Estado General de Almacén -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+                
+                <!-- Stock Materia Prima -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span style="background: #FFF3E0; color: #D97706; padding: 8px; border-radius: 8px; font-size: 16px;">📦</span>
+                        <span style="background: #E8F8F5; color: #16A085; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 12px;">● En Curso</span>
+                    </div>
+                    <span style="font-size: 11px; color: #777; font-weight: bold; text-transform: uppercase;">Stock de Materia Prima</span>
+                    <h3 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 5px 0;">24 Insumos Activos</h3>
+                    <p style="font-size: 12px; color: #555; margin-bottom: 20px;">• Harina, levaduras, azúcares, etc.</p>
+                    <button onclick="window.location.href='stock_materia_prima.html'" style="width: 100%; background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">Ver Stock Materia Prima ➔</button>
+                </div>
+
+                <!-- Stock Producto Terminado -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span style="background: #EBF5FB; color: #2980B9; padding: 8px; border-radius: 8px; font-size: 16px;">🥖</span>
+                        <span style="background: #EBF5FB; color: #2980B9; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 12px;">En Vitrina y Lotes</span>
+                    </div>
+                    <span style="font-size: 11px; color: #777; font-weight: bold; text-transform: uppercase;">Stock Producto Terminado</span>
+                    <h3 style="color: #67412E; font-size: 24px; font-weight: bold; margin: 5px 0;">18 Productos Listos</h3>
+                    <p style="font-size: 12px; color: #555; margin-bottom: 20px;">• Panes, repostería y galletas</p>
+                    <button onclick="window.location.href='stock_producto_terminado.html'" style="width: 100%; background: #D97706; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">Ver Stock Producto Terminado ➔</button>
+                </div>
+
+                <!-- Alertas de Stock Mínimo -->
+                <div style="background: white; border: 1px solid #EAE3D9; border-radius: 12px; padding: 20px; position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span style="background: #FDEDEC; color: #C0392B; padding: 8px; border-radius: 8px; font-size: 16px;">⚠️</span>
+                        <span style="background: #FDEDEC; color: #C0392B; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 12px;">Reposición Urgente</span>
+                    </div>
+                    <span style="font-size: 11px; color: #777; font-weight: bold; text-transform: uppercase;">Alertas de Stock Mínimo</span>
+                    <h3 style="color: #C0392B; font-size: 24px; font-weight: bold; margin: 5px 0;">3 Insumos Críticos</h3>
+                    <p style="font-size: 12px; color: #555; margin-bottom: 20px;">• Harina W300 (15kg), Mantequilla (4kg), Levadura (2kg)</p>
+                    <button onclick="window.location.href='alertas_stock_minimo.html'" style="width: 100%; background: #C0392B; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">Ver Alertas ➔</button>
+                </div>
+
+            </div>
+
+            <!-- Accesos Rápidos y Acciones Operativas (6 Flujos Completos) -->
+            <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="color: #67412E; font-size: 16px; font-weight: bold; margin: 0;">Acciones Operativas y Accesos Rápidos</h3>
+                <span style="background: #FFF3E0; color: #D97706; font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 12px;">6 Flujos Disponibles</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px;">
+                
+                <!-- 1. Entrada de Inventario -->
+                <div onclick="window.location.href='entrada_inventario.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">📥</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Entrada de Inventario</strong>
+                            <span style="font-size: 11px; color: #777;">Registro de compras & Facturas</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+                <!-- 2. Registro de Mermas -->
+                <div onclick="window.location.href='catalogo_mermas.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">📊</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Registro de Mermas</strong>
+                            <span style="font-size: 11px; color: #777;">Control de desperdicios y pan quemado</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+                <!-- 3. Nueva Materia Prima -->
+                <div onclick="window.location.href='nueva_materia_prima.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">➕</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Nueva Materia Prima</strong>
+                            <span style="font-size: 11px; color: #777;">Costo unitario & Stock de seguridad</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+                <!-- 4. Nuevo Producto Terminado -->
+                <div onclick="window.location.href='nuevo_producto_terminado.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">🥖</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Nuevo Producto Terminado</strong>
+                            <span style="font-size: 11px; color: #777;">Crear nuevo producto para la venta</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+                <!-- 5. Catálogo de MP -->
+                <div onclick="window.location.href='catalogo_mp.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">📋</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Catálogo de MP</strong>
+                            <span style="font-size: 11px; color: #777;">Maestro de materias primas</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+                <!-- 6. Directorio de Proveedores -->
+                <div onclick="window.location.href='directorio_proveedores.html'" style="background: white; border: 1px solid #EAE3D9; padding: 18px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="background: #FFF3E0; padding: 10px; border-radius: 8px; font-size: 18px;">🏭</span>
+                        <div>
+                            <strong style="font-size: 13px; color: #67412E; display: block;">Directorio de Proveedores</strong>
+                            <span style="font-size: 11px; color: #777;">Gestión de contactos externos</span>
+                        </div>
+                    </div>
+                    <span style="color: #D97706; font-weight: bold;">&gt;</span>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+<script src="inventario.js"></script>
+</body>
+</html>
